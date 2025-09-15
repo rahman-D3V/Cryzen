@@ -1,9 +1,18 @@
 import React from "react";
 
 const EachCoinRight = ({ data }) => {
+
+  console.log(data.description.en)
+  
+
   return (
-    <div className="bg-gradient-to-br from-[#0B1426] via-[#1A2332] to-[#0B1426] h-screen overflow-y-auto">
+    <div className="bg-gradient-to-br from-[#0B1426] via-[#1A2332] to-[#0B1426] h-screen  ">
       <div className="p-6">
+
+        {
+          console.log("data.description.en")
+          
+        }
         
         {/* Clean Coin Header - Matching Hero Typography */}
         <div className="mb-8">
@@ -121,7 +130,7 @@ const EachCoinRight = ({ data }) => {
               Resources
             </h3>
             
-            <div className="space-y-3">
+            <div className="space-y-3 flex flex-wrap gap-2">
               {data.links?.homepage?.length > 0 && data.links.homepage[0] && (
                 <CleanLink
                   href={data.links.homepage[0]}
@@ -134,9 +143,27 @@ const EachCoinRight = ({ data }) => {
                   text="Whitepaper"
                 />
               )}
+
+              {data.links?.twitter_screen_name && data.links.twitter_screen_name.trim() !== "" && (
+                <CleanLink
+                  href={`https://twitter.com/${data.links.twitter_screen_name}`}
+                  text="Twitter"
+                />
+              )}
+              {data.links?.subreddit_url && data.links.subreddit_url.trim() !== "" && (
+                <CleanLink
+                  href={data.links.subreddit_url}
+                  text="Reddit"
+                />
+              )}
+
+
+
             </div>
           </div>
         )}
+
+        <p>hOLA</p>
       </div>
     </div>
   );
@@ -144,7 +171,7 @@ const EachCoinRight = ({ data }) => {
 
 // Clean Stat Row Component - Matching Hero Section Simplicity
 const StatRow = ({ label, value, subtitle }) => (
-  <div className="flex justify-between items-start py-2">
+  <div className="flex justify-between items-start py-2 border">
     <div className="text-[#94A3B8] text-sm font-medium">
       {label}
     </div>
