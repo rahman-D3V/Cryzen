@@ -6,7 +6,7 @@ import EachCoinChart from './EachCoinChart';
 import { CoinDescription } from './CoinDescription';
 
 
-const EachCoinLeft = ({ coinId, data }) => {
+const EachCoinLeft = ({ coinId, data,result }) => {
   const [activeTimeFrame, setActiveTimeFrame] = useState('7D');
   const [chartData, setChartData] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -94,6 +94,50 @@ const EachCoinLeft = ({ coinId, data }) => {
 
 
       <CoinDescription description={data.description.en} data={data}/>
+
+
+
+
+      <div className="p-6">
+      <h1 className="text-2xl font-bold mb-6 text-shadow-fuchsia-100">Latest Crypto News</h1>
+
+      <div className="grid gap-6 md:grid-cols-3">
+        {result?.map((item) => (
+          <article
+              key={item.id}
+              className="bg-slate-800 rounded-lg overflow-hidden shadow hover:shadow-lg transition flex"
+            >
+              {/* image */}
+              <div className="w-28 flex-shrink-0">
+                <img
+                  src={
+                    item.imgUrl?.trim() ||
+                    "https://bitcoinworld.co.in/wp-content/uploads/usdt-transfer-aave-htx-803x600.jpg"
+                  }
+                  alt={item.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* text */}
+              <div className="p-4 flex flex-col justify-between">
+                <h2 className="text-base font-semibold line-clamp-2">{item.title}</h2>
+                <p className="text-xs text-gray-400">{item.source}</p>
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-blue-400 text-xs underline"
+                >
+                  Read more →
+                </a>
+              </div>
+            </article>
+
+        ))}
+      </div>
+    </div>
+
 
     </div>
   );

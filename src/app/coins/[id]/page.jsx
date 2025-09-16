@@ -23,9 +23,19 @@ export default async function CoinPage({ params }) {
       </div>
     );
   }
-
+  
   const data = await res.json();
 
+  // ----------------------NEWS-API-FETCH--------------------------------
+
+    const res1 = await fetch("http://localhost:3000/api/crypto-news", {
+    cache: "no-store",
+  });
+  const newsD = await res1.json();
+  const {result} = newsD
+
+  console.log(result);
+  
   return (
     <div className=" overflow-x-hidden bg-gradient-to-br from-[#0B1426] via-[#1A2332] to-[#0B1426] min-h-screen">
       <div className="flex flex-col lg:flex-row">
@@ -36,12 +46,13 @@ export default async function CoinPage({ params }) {
 
           <div className="w-full lg:w-2/3 bg-[#0B1426]">
             <div className="md:px-8">
-              <EachCoinLeft coinId={coinId} data={data}/>
+              <EachCoinLeft coinId={coinId} data={data} result={result}/>
             </div>
           </div>
 
 
       </div>
+      <p className="px-10 text-white">Disclaimer. No part of the content we provide constitutes financial advice on coin prices, legal advice, or any other form of advice meant for you to rely on for any purpose. Any use or reliance on our content is solely at your own risk and discretion.</p>
     </div>
   );
 }
