@@ -29,11 +29,11 @@ export async function GET(request) {
 
     const url = `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart/range?vs_currency=usd&from=${from}&to=${to}`;
     
-    console.log('🔗 CoinGecko URL:', url);
-    console.log('📅 Date Range:', {
-      from: new Date(from * 1000).toISOString(),
-      to: new Date(to * 1000).toISOString()
-    });
+    // console.log('🔗 CoinGecko URL:', url);
+    // console.log('📅 Date Range:', {
+    //   from: new Date(from * 1000).toISOString(),
+    //   to: new Date(to * 1000).toISOString()
+    // });
 
     const res = await fetch(url, {
       headers: {
@@ -44,7 +44,7 @@ export async function GET(request) {
 
     if (!res.ok) {
       const errorText = await res.text();
-      console.log('❌ CoinGecko Error:', errorText);
+      // console.log('❌ CoinGecko Error:', errorText);
       
       return Response.json(
         { error: 'Failed to fetch chart data from CoinGecko', details: errorText }, 

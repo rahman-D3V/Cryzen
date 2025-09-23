@@ -47,9 +47,18 @@ const Navbar = () => {
       setMarketCapData(data)
       
     };
+
+    const fetchNews = async () => {
+      const response = await fetch("");
+      const html = await response.text();
+      console.log(html)
+      
+      
+    };
     fetchCoins();
     fetchTrendingCoins()
     fetchMarketCapData()
+    fetchNews()
 
   }, []);
 
@@ -79,7 +88,7 @@ const Navbar = () => {
             
             {/* Left: Logo & Navigation */}
             <div className="flex items-center gap-10">
-              <Link href="#" className="flex items-center gap-3 no-underline group">
+              <Link href="/" className="flex items-center gap-3 no-underline group">
                 <div className="w-11 h-11 rounded-xl flex items-center justify-center bg-gradient-to-br from-[#3B82F6] to-[#06B6D4] shadow-[0_8px_32px_rgba(59,130,246,0.25)] group-hover:shadow-[0_12px_40px_rgba(6,182,212,0.4)] transition-all duration-300">
                   <svg
                     width="20"

@@ -7,7 +7,7 @@ const TrendingCryptoPage = () => {
 
   const trendingCoins = useStore(state => state.trendingCoins)
 
-  console.log(trendingCoins?.coins?.[7]?.item);
+  // console.log(trendingCoins?.coins?.[7]?.item);
   
 
   return (

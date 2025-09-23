@@ -20,7 +20,7 @@ const Hero = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 pb-32">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-[80vh]">
-          {/* Left: Content */}----------------------------
+          {/* Left: Content */}
           <div className="lg:col-span-7 xl:col-span-6 z-10">
             <div className="max-w-2xl">
               {/* Status Badge */}

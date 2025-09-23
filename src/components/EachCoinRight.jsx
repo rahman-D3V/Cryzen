@@ -10,7 +10,7 @@ const EachCoinRight = ({ data }) => {
       <div className="p-6">
 
         {
-          console.log("data.description.en")
+          // console.log("data.description.en")
           
         }
         

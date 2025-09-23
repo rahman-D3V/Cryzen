@@ -1,5 +1,7 @@
 import EachCoinLeft from "@/components/eachCoinLeft";
 import EachCoinRight from "@/components/eachCoinRight";
+import ExplainSelection from "@/components/ExplainSelection";
+import { WhatIfReturns } from "@/components/whatIfReturns";
 import React from "react";
 
 export default async function CoinPage({ params }) {
@@ -34,10 +36,12 @@ export default async function CoinPage({ params }) {
   const newsD = await res1.json();
   const {result} = newsD
 
-  console.log(result);
+  // console.log(result);
   
   return (
+    
     <div className=" overflow-x-hidden bg-gradient-to-br from-[#0B1426] via-[#1A2332] to-[#0B1426] min-h-screen">
+      <ExplainSelection />
       <div className="flex flex-col lg:flex-row">
         {/* Left Sidebar - Clean & Professional */}
         <div className="w-full lg:w-1/3 bg-[#0B1426] border-r border-[#1A2332]">
@@ -53,6 +57,12 @@ export default async function CoinPage({ params }) {
 
       </div>
       <p className="px-10 text-white">Disclaimer. No part of the content we provide constitutes financial advice on coin prices, legal advice, or any other form of advice meant for you to rely on for any purpose. Any use or reliance on our content is solely at your own risk and discretion.</p>
+
+      <div className="flex items-center justify-center">
+      <WhatIfReturns coinId={"bitcoin"} coinName={"bitcoin"} currentPrice={10000000}/>
+
+      </div>
+
     </div>
   );
 }
